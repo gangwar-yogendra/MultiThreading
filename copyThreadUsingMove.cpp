@@ -1,5 +1,6 @@
 /** 
-    Copy one thread into othere thread using std::move 
+    Copy one thread objec into other
+	thread object using std::move 
 **/
 
 #include <iostream>
