@@ -4,7 +4,7 @@
 #include <thread>
 #include <unistd.h>
 
-int _Function()
+void _Function()
 {
     std::cout<<"_Function\n";
 }
