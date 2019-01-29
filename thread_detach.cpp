@@ -2,7 +2,7 @@
 #include <thread>
 #include <unistd.h>
 
-int _Function()
+void _Function()
 {
     std::cout<<"_Function\n";
 }
@@ -16,7 +16,7 @@ int main(int argc, char** argv)
     /* We can use detach() also */
      usleep(14);
      myThread.detach();		/* Main thread will freely on its own, */
-							/* It will works like daemon process */
+				/* It will works like daemon process */
 	
     /* We can join the same thread if thread is joinable */
     if(myThread.joinable())	/* If condition will not insert then program will crash */
