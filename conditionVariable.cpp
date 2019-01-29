@@ -26,11 +26,9 @@ void producer()
         q.push_front(count);
         lock.unlock();
         // Condition variable case to notify
-        //cond.notify_one();  // Notify once its fill the data in queue and notify 
-                            // only one thread
-        // If need to notify more than one thread or all thread then 
-        cond.notify_all();
-        std::this_thread::sleep_for(chrono::seconds(1));    // Sleep thread t1
+        //cond.notify_one();  // notify only one thread
+        cond.notify_all();    // notify more all thread
+        std::this_thread::sleep_for(chrono::seconds(1));    // Sleep thread t1 for 1 second
         count--;
     }
 }
@@ -44,11 +42,12 @@ void consumer()
     //    if(!q.empty())    // Not required when use condition variable
     //    {                 
             /*             
-            sleep the thread t2 till it will not notify and why did pass 
-            argument lock in the wait fnction?? So because using unique_lock<>
-            acquire the mutex then before sleep the t2 thread we need to release 
-            the same acquire mutex, which will call in wait function
-            and on notify_one() will acquire the same mutex using lock variable
+            Sleep the thread t2 using given below function wait(), till it will not 
+            notify using other thread t1 using function notify_all/notify_one 
+            and there we need to pass argument argument in wait function as unique_lock<> obj
+            , because using unique_lock<> object will acquire the mutex and we need to release 
+            before sleeping the t2 thread, so the wait function will call unlock function to 
+            release the acquire mutex
             */
             //cond.wait(lock);  // it will sleep and will not wakeup till notify 
             cond.wait(lock, [](){return !q.empty();});  //suprious wake
@@ -57,8 +56,8 @@ void consumer()
             lock.unlock();            
             cout<<"Thread t2 get value from thread t1:"<<data<<endl;
     //    }
-        /* This below code is busy waiting unnecessarily 
-           lock the mutex and then check if there are no
+        /* The below code is busy waiting unnecessarily 
+           there lock the mutex and then check if there are no
            data in queue then unlock the mutex and 
            again will reach to while loop
         */
