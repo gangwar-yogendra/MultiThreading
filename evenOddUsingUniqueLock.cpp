@@ -47,7 +47,7 @@ void _Odd()
 {
     while(count < 200) {
         std::unique_lock<std::mutex> lock(_mu1);
-		cond.wait(lock, [](){ return CheckOdd(count);});
+	cond.wait(lock, [](){ return CheckOdd(count);});
         if(count & 1) {
             cout<< "Odd" << ": "<< count << endl;
             count++;
