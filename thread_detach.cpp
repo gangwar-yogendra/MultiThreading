@@ -20,7 +20,7 @@ int main(int argc, char** argv)
 	
     /* We can join the same thread if thread is joinable */
     if(myThread.joinable())	/* If condition will not insert then program will crash */
-        myThread.join();
+        myThread.join();	/* Because detachable thread cannot be join and vice versa */
 	
 	
     return 0;
