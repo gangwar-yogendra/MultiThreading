@@ -2,6 +2,7 @@
 
 **1. Join**
 - thread_join.cpp                      http://cpp.sh/3bjuyp
+<br />
 **2. Detach** 
 - thread_detach.cpp                    http://cpp.sh/6owg6
 **3. Calling Functor Using Thread**
