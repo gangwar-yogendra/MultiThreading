@@ -1,6 +1,6 @@
 # MultiThreading concepts
 
-1. Join 
+1. Join
 thread_join.cpp                      http://cpp.sh/3bjuyp
 2. Detach
 thread_detach.cpp                    http://cpp.sh/6owg6
