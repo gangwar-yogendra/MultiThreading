@@ -1,4 +1,5 @@
-// Example program
+// This program to avoid the deadlock and guard the 
+// race condition using std::lock_guard<std::mutex>
 #include <iostream>
 #include <thread>
 #include <string>
