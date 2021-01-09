@@ -20,6 +20,4 @@ copyThreadUsingMove.cpp              http://cpp.sh/9d3wg                    <br 
 **7. Unique Lock**                                                          <br />
 * uniqueLockProgram.cpp                                                     <br />    
 * LazyInitializationOnceFlag.cpp                                            <br />
-
-
-7. printEvenOddThread.cpp <br />
+* conditionVariable.cpp                                                     <br />
